@@ -1,10 +1,5 @@
 /* Place your CSS styles in this file */
 
-h1 {
-    text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: normal;
-}
 /* Global reset */
 * {
     margin: 0;
@@ -14,10 +9,10 @@ h1 {
 
 /* Body Styles */
 body {
-    background: linear-gradient(135deg, #1c1c1c, #0f0f0f);
+    background: linear-gradient(to bottom, #1a1a1a, #121212);
     color: #F57C00;
     font-family: 'Roboto', sans-serif;
-    line-height: 1.7;
+    line-height: 1.6;
     padding: 0;
     overflow-x: hidden;
     display: flex;
@@ -28,36 +23,36 @@ body {
 /* Header */
 header {
     background-color: #1c1c1c;
-    padding: 50px;
+    padding: 20px 40px;
     text-align: center;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     border-bottom: 4px solid #F57C00;
     width: 100%;
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 h1 {
     font-family: 'Roboto Slab', serif;
-    font-size: 3.5rem;
+    font-size: 2rem;
     color: white;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: color 0.3s ease;
 }
 
 h1:hover {
     color: #FF9E00;
-    text-shadow: 0 6px 18px rgba(255, 158, 0, 0.7);
 }
 
 /* Title Line */
 .title-line {
     width: 100%;
-    height: 8px;
+    height: 5px;
     background-color: #F57C00;
-    margin-top: -4px;
+    margin-top: 60px;
     border-radius: 50%;
 }
 
@@ -66,71 +61,46 @@ main {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 60px 20px;
+    padding: 80px 20px;
     position: relative;
     z-index: 1;
+    margin-top: 120px; /* Adjust for fixed header */
 }
 
 .content-wrapper {
     width: 100%;
     max-width: 1200px;
-    background-color: #2c2c2c;
-    border-radius: 16px;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
-    padding: 40px;
-    transition: transform 0.4s ease-in-out;
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    transition: transform 0.3s ease-in-out;
     position: relative;
     z-index: 2;
 }
 
 .content-wrapper:hover {
-    transform: scale(1.03);
-}
-
-/* Side Elements */
-.side-elements {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-}
-
-.side-element {
-    width: 18%;
-    height: 100%;
-    background-color: rgba(245, 124, 0, 0.1);
-    box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.6);
-    border-radius: 16px;
-    transform: scale(0.9);
-    transition: transform 0.4s ease;
-}
-
-.side-element:hover {
-    transform: scale(1);
+    transform: scale(1.02);
 }
 
 /* Section Styles */
 section {
-    margin-bottom: 60px;
-    padding-bottom: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
     border-bottom: 2px solid #333;
     opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 0.6s forwards;
+    transform: translateY(30px);
+    animation: fadeInUp 0.5s forwards;
     animation-delay: 0.3s;
 }
 
 section h2 {
     font-family: 'Roboto Slab', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #F57C00;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
@@ -139,16 +109,16 @@ section h2:hover {
 }
 
 section p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #e0e0e0;
     line-height: 1.8;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: justify;
     transition: color 0.3s ease;
 }
 
 section p.highlight {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #FF9E00;
     margin-top: 20px;
@@ -161,15 +131,14 @@ section p strong {
 
 section img {
     max-width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    margin-top: 20px;
 }
 
 section img:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* Footer Styles */
@@ -177,22 +146,22 @@ footer {
     text-align: center;
     background-color: #1c1c1c;
     color: #F57C00;
-    padding: 50px;
-    margin-top: 80px;
-    box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    margin-top: 60px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.6);
     width: 100%;
 }
 
 footer h1 {
     font-family: 'Roboto Slab', serif;
-    font-size: 2.5rem;
-    margin-bottom: 25px;
+    font-size: 2rem;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 footer p {
-    font-size: 1.2rem;
-    margin-top: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
     transition: color 0.3s ease;
 }
 
@@ -210,179 +179,30 @@ footer a:hover {
 /* Button Styles */
 .cta-btn {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 20px;
     background-color: #F57C00;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 50px;
+    border-radius: 30px;
     text-decoration: none;
-    transition: background-color 0.4s ease, transform 0.4s ease;
-    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-btn:hover {
     background-color: #FF9E00;
-    transform: translateY(-8px);
+    transform: translateY(-5px);
 }
 
 /* Animation for fading in sections */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
     }
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-/* Mobile-First Design */
-@media (max-width: 768px) {
-    header {
-        padding: 30px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .content-wrapper {
-        padding: 25px;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
-
-    section p {
-        font-size: 1.1rem;
-    }
-
-    footer h1 {
-        font-size: 2rem;
-    }
-
-    .side-elements {
-        display: none;
-    }
-}
-<section>
-    <h2>Meet the Team</h2>
-    <div class="team-profiles">
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.1&permmsgid=msg-f:1820968132929687607&th=194560de76949037&view=att&disp=safe&realattid=194560db5373ebfdd711&zw" alt="Ty Peterson" class="team-img">
-            <h3>Ty Peterson</h3>
-            <p>Role: Impact - Ty is in his 2nd year in FTC but in total his 5th year in robotics. Raised around robotics, he is an excellent speaker and knows the team deeply.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.1&permmsgid=msg-f:1820968295479204630&th=194561044f495b16&view=att&disp=safe&realattid=19456100ef8cad17da61&zw" alt="Walter Calouette" class="team-img">
-            <h3>Walter Calouette</h3>
-            <p>Role: Designer, Grease Monkey - In his 2nd year of FRC, 4th year overall in FIRST.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.1&permmsgid=msg-f:1820968388990738760&th=1945611a15022148&view=att&disp=safe&realattid=19456116cb23f5ebd7d1&zw" alt="Casey Calouette" class="team-img">
-            <h3>Casey Calouette</h3>
-            <p>Role: Programmer, CAD, Mentor - A skilled CAD user and versatile across multiple areas.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.1&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=att&disp=safe&realattid=194562fe83f38a384801&zw" alt="Jacob Bourdeau" class="team-img">
-            <h3>Jacob Bourdeau</h3>
-            <p>Role: Impact, Designer - In his 1st year in FRC and 3rd year in FTC. 4 years overall.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.7&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ_AfMFElPeH8qSHKO3k4nqJp8rkCmec2YKHHu8yQBDuRWHml1hjCX0M6q28xeH6c-o7FWgkvQ5ajs00zsD0jhtOet7tSjuKfIzoyc5Rs5NlzvuTtW0x2QkAbDE&disp=emb&realattid=ii_19456306084e44535bd8&zw" alt="Cooper Wiles" class="team-img">
-            <h3>Cooper Wiles</h3>
-            <p>Role: Builder, Driver - Cooper enjoys robotics and is always ready to help out. He is very skilled and helpful.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.6&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ985qCHQ7IF6xu4rLgMtD3qBinYbbByiv-SBR_K-_wI77Sjf08xURAgHPrq68Syj2zFNnklAzEhBy5DakfDGc5wc7XY0nmDr0bDGyEWlXaaVjBc0lYlYnzS6kk&disp=emb&realattid=ii_19456304b87e249e7997&zw" alt="Gavin Groleau" class="team-img">
-            <h3>Gavin Groleau</h3>
-            <p>Role: Builder - Always ready to help and contribute to building the robot.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.5&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ9okDBFybf7E--RV0QremW4JrzgQhnmjxo3Gok76FjBA10QlJ9XWeqDxrmJnJJeLpTS1ct9TNrGQ_mmSBRB6NQnTd4NsFvkK5ymr30b8Em_RZCDsSaFazTYtXA&disp=emb&realattid=ii_1945630315ce42906bb6&zw" alt="David Fleury" class="team-img">
-            <h3>David Fleury</h3>
-            <p>Role: Pit Gorilla - Always ready to jump in and help with whatever is needed in the pit.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.4&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ-2oM9zy5tP6CaYzi8e8h0A8stHQE1njnNaaLrqNAfYCRbCqZv3b5sg_KqLAOeNiWQBTLaPti-lejNOBT5qa1JRv0_F0P8qnywwNBQTgIq4JcLnfDJ7Gx1AJ9k&disp=emb&realattid=ii_194563020ece266169b5&zw" alt="Donavan Heikkinen" class="team-img">
-            <h3>Donavan Heikkinen</h3>
-            <p>Role: Human Player - Donny is a builder and a fantastic human player. "I am 14, small-medium build."</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.3&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ8B_z-r_T1-m4D9HipdYrC92Lxy5o64vBIejbv7gL_U9H7ip0SbChzGBCoAz73sA8kQM6Qu3zRwOICxlBHpLpyKSpDXi8Uwu0LEfVmwKvrN41--FZT9s9wmZWo&disp=emb&realattid=ii_19456301133e2742e1c4&zw" alt="Riley Schmidt" class="team-img">
-            <h3>Riley Schmidt</h3>
-            <p>Role: Driver, Builder - Riley likes building things and enjoys driving the robot.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.2&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ-tYB6K1-BGeWcKHNRlZL1pnefrVcDw2_Fl0CTpwcXSlLpFlFKIVATdIfmF42-7KMpjJuczfNXtGhbZvjTpPr2BndwUF3AbE0smhOKAAxY_uEiY7jYxAawDjSk&disp=emb&realattid=ii_1945630012de282459d3&zw" alt="Jackson Herioux" class="team-img">
-            <h3>Jackson Herioux</h3>
-            <p>Role: Programmer - 2nd year in FRC, mainly programs but also helps with building and wiring.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.0.1&permmsgid=msg-f:1820970526899932497&th=1945630bda538d51&view=fimg&fur=ip&permmsgid=msg-f:1820970526899932497&sz=s0-l75-ft&attbid=ANGjdJ9u2kYHd24R3_ztD7i8jmnWbd-GR0Gwu9Y-Lc0g0E1chpIVHY4zGMMfd2lVV-gKnOl7aoru1Xy9JTP5_UPF2uVoirHeCTxOzRPDa4HqIfvtNk4YMrVlaf9i7E4&disp=emb&realattid=ii_194562feea2e2905d1e2&zw" alt="Carter Kang" class="team-img">
-            <h3>Carter Kang</h3>
-            <p>Role: Builder, Driver</p>
-        </div>
-        <div class="profile">
-            <img src="https://ogden_images.s3.amazonaws.com/www.dailypress.net/images/2019/12/19085605/webRobot-Toto-752x500.gif" alt="Gabe Kluka" class="team-img">
-            <h3>Gabe Kluka</h3>
-            <p>Role: Main Coach - Works for EMP, one of the main mentors and managers of the team.</p>
-        </div>
-        <div class="profile">
-            <img src="https://gray-wluc-prod.gtv-cdn.com/resizer/v2/I72AE5SY65C77B37EJUVUZTUQA.jpg?auth=75f9107df7c05aa0628896191eab028c7b88519bb8f28ade2a073f50c11e2dc5&width=800&height=450&smart=true" alt="Chad Leiter" class="team-img">
-            <h3>Chad Leiter</h3>
-            <p>Role: Mentor - Chad is the main manager of EMP, very smart and helpful.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.1&permmsgid=msg-f:1820974444149552797&th=1945669be899369d&view=att&disp=safe&realattid=1945668b5d1f46bf2d21&zw" alt="Elliot Finch" class="team-img">
-            <h3>Elliot Finch</h3>
-            <p>Role: Pit Monkey Helper - Elliot is always ready to help with anything in the pit.</p>
-        </div>
-        <div class="profile">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=9da55aedff&attid=0.1&permmsgid=msg-f:1820975158160133322&th=1945674226f20cca&view=att&disp=safe&realattid=1945670bbc0fcb6f4fa1&zw" alt="Allyssa DeMorrow" class="team-img">
-            <h3>Allyssa DeMorrow</h3>
-            <p>Role: Picture Taker, Helper - Allyssa loves taking photos that capture great memories of the team.</p>
-        </div>
-        <div class="profile">
-            <img src="https://cdn.discordapp.com/attachments/1322262934113620092/1327837277350531117/image.jpg?ex=67848454&is=678332d4&hm=76187ce1a757b1c89033c88d46575852f3a318db4fc39d46b422e1166a6874c8&" alt="Robert Watson" class="team-img">
-            <h3>Robert Watson</h3>
-            <p>Role: Builder - Robert enjoys helping build and is known for his intelligence and helpfulness.</p>
-        </div>
-    .team-section {
-    padding: 20px;
-    text-align: center;
-}
-
-.team-profiles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.profile {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 250px;
-    text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.profile p {
-    font-size: 0.9em;
-    color: #555;
-}
-
-    </div>
-
-</section>
