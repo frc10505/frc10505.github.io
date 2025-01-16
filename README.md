@@ -1,1 +1,1 @@
-# frc10505.github.io
+# Technomos10505.com
