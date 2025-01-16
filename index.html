@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Robotics Team Nasa Technomos 10505, competing in First Robotics Competition (FRC)">
+    <title>Robotics Team Nasa Technomos 10505</title>
+
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            background: linear-gradient(to bottom, #1a1a1a, #121212);
+            color: #F57C00;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header */
+        header {
+            background-color: #1c1c1c;
+            padding: 20px 40px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            border-bottom: 4px solid #F57C00;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            transition: color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #FF9E00;
+        }
+
+        /* Title Line */
+        .title-line {
+            width: 100%;
+            height: 5px;
+            background-color: #F57C00;
+            margin-top: 60px;
+            border-radius: 50%;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #1c1c1c;
+            padding: 10px 0;
+            position: sticky;
+            top: 60px;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        nav a {
+            color: #F57C00;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #FF9E00;
+            border-radius: 30px;
+        }
+
+        /* Main Content */
+        main {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+            margin-top: 120px; /* Adjust for fixed header */
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #1c1c1c;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #333;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.5s forwards;
+            animation-delay: 0.3s;
+        }
+
+        section h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            color: #F57C00;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        section h2:hover {
+            color: #FF9E00;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+            transition: color 0.3s ease;
+        }
+
+        section p.highlight {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FF9E00;
+            margin-top: 20px;
+        }
+
+        section p strong {
+            font-weight: bold;
+            color: #F57C00;
+        }
+
+        section img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            margin-top: 20px;
+        }
+
+        section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            background-color: #1c1c1c;
+            color: #F57C00;
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.6);
+            width: 100%;
+        }
+
+        footer h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #F57C00;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #FF9E00;
+        }
+
+        /* Button Styles */
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #F57C00;
+            color: white;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #FF9E00;
+            transform: translateY(-5px);
+        }
+
+        /* Animation for fading in sections */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styling for the team images and logo */
+        .team-images {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .team-images img {
+            max-width: 45%;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .team-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Escaba School Logo Styling */
+        .escaba-logo {
+            max-width: 20%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .escaba-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Countdown Styles */
+        .countdown {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #F57C00;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .countdown p {
+            font-size: 1.5rem;
+        }
+
+        /* Video Gallery Styles */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-gallery .video-item {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-gallery .video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Team Member Profiles Styles */
+        .team-profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-profiles .profile {
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .team-profiles .profile img {
+            width: 100px; /* Smaller image size */
+            height: 100px; /* Smaller image size */
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .team-profiles .profile h3 {
+            margin-bottom: 5px;
+        }
+
+        .team-profiles .profile p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background-color: #F57C00;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #FF9E00;
+        }
+
+        /* Mobile-First Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .content-wrapper {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section p {
+                font-size: 1rem;
+            }
+
+            footer h1 {
+                font-size: 1.5rem;
+            }
+
+            .side-elements {
+                display: none;
+            }
+
+            .team-images img {
+                max-width: 100%;
+            }
+
+            .escaba-logo {
+                max-width: 30%;
+            }
+
+            .countdown p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .content-wrapper {
+                padding: 15px;
+            }
+
+            section h2 {
+                font-size: 1.2rem;
+            }
+
+            section p {
+                font-size: 0.9rem;
+            }
+
+            footer h1 {
+                font-size: 1.2rem;
+            }
+
+            .countdown p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Robotics Team Nasa Technomos 10505</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#team">Team</a>
+            <a href="#frc">FRC</a>
+            <a href="#glossary">Glossary</a>
+        </nav>
+    </header>
+
+    <!-- Full-width orange line -->
+    <div class="title-line"></div>
+
+    <main>
+        <div class="content-wrapper">
+            <section id="about">
+                <h2>Our Team in Action</h2>
+                <!-- Images and the Escaba School Logo -->
+                <div class="team-images">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXb1fl5tuuGGLiQmteX1Tx6wg8tQKfizkMA&s" alt="team working on robotics">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqSUBTf9rXm5QXNG2BkpLNwuZWPcdMW4cvLrJre97psUDGSXi1lfN1aKsTtKutQlK-D8M&usqp=CAU" alt="robotics competition in action">
+                    <img src="https://th.bing.com/th/id/OIP.MIS5O6mvyr-uIGMr9nmfzAAAAA?w=170&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" alt="Escaba School Logo" class="escaba-logo">
+                </div>
+            </section>
+
+            <section>
+                <h2>About the Team</h2>
+                <p>The Nasa Technomos is a highly motivated and hardworking team of 14 individuals. We are passionate about robotics and are committed to achieving success through collaboration and innovation. We also have a sister team, the Robomos, who work alongside us to push our limits.</p>
+                <p class="highlight">Together, we foster an environment of growth, teamwork, and perseverance, which fuels our passion for robotics!</p>
+            </section>
+
+            <section id="team">
+                <h2>Our Coaches</h2>
+                <p>We have 7 dedicated coaches with diverse experiences in engineering, programming, and robotics. Their guidance helps us learn and grow. However, it’s the students who do the bulk of the work, coming up with creative solutions to challenges and building our robots.</p>
+                <p><strong>Our coaches</strong> provide invaluable mentorship and insights, but it’s the students’ hard work and dedication that make the real difference.</p>
+            </section>
+
+            <section id="frc">
+                <h2>What is FRC?</h2>
+                <p>The FIRST Robotics Competition (FRC) is an exciting and challenging event where high school students collaborate to design, build, and program robots. Each year, a new game is revealed at the FRC kickoff, and teams like ours have six weeks to create a robot that can compete in various challenges.</p>
+                <p class="highlight">FRC is not just about robots—it's about learning, teamwork, and making lifelong memories!</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPf2U_YzWYoZW2bgMCGsr4m1Urc3S3nQbhTA&s" alt="frc competition">
+            </section>
+
+            <!-- Video Gallery Section -->
+            <section>
+                <h2>Past Game Teaser</h2>
+                <div class="video-gallery">
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/RA3JkOLUYzQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- Add more video items as needed -->
+                </div>
+            </section>
+
+            <!-- Team Member Profiles Section -->
+          <section class="team-section">
+    <h2>Meet the Team</h2>
+    <div class="team-profiles">
+        <div class="profile">
+            <h3>Ty Peterson</h3>
+            <p>Role: Impact - Ty is in his 2nd year in FTC but in total his 5th year in robotics. Raised around robotics, he is an excellent speaker and knows the team deeply.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Walter Calouette</h3>
+            <p>Role: Designer, Grease Monkey - In his 2nd year of FRC, 4th year overall in FIRST.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Casey Calouette</h3>
+            <p>Role: Programmer, CAD, Mentor - A skilled CAD user and versatile across multiple areas.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Jacob Bourdeau</h3>
+            <p>Role: Impact, Designer - In his 1st year in FRC and 3rd year in FTC. 4 years overall.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Cooper Wiles</h3>
+            <p>Role: Builder, Driver - Cooper enjoys robotics and is always ready to help out. He is very skilled and helpful.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Gavin Groleau</h3>
+            <p>Role: Builder - Always ready to help and contribute to building the robot.</p>
+        </div>
+
+        <div class="profile">
+            <h3>David Fleury</h3>
+            <p>Role: Pit Gorilla - Always ready to jump in and help with whatever is needed in the pit.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Donavan Heikkinen</h3>
+            <p>Role: Human Player - Donny is a builder and a fantastic human player. "I am 14, small-medium build."</p>
+        </div>
+
+        <div class="profile">
+            <h3>Riley Schmidt</h3>
+            <p>Role: Driver, Builder - Riley likes building things and enjoys driving the robot.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Jackson Herioux</h3>
+            <p>Role: Programmer - 2nd year in FRC, mainly programs but also helps with building and wiring.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Carter Kang</h3>
+            <p>Role: Builder, Driver</p>
+        </div>
+
+        <div class="profile">
+            <h3>Gabe Kluka</h3>
+            <p>Role: Main Coach - Works for EMP, one of the main mentors and managers of the team.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Chad Leiter</h3>
+            <p>Role: Mentor - Chad is the main manager of EMP, very smart and helpful.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Elliot Finch</h3>
+            <p>Role: Pit Monkey Helper - Elliot is always ready to help with anything in the pit.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Allyssa DeMorrow</h3>
+            <p>Role: Picture Taker, Helper - Allyssa loves taking photos that capture great memories of the team.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Robert Watson</h3>
+            <p>Role: Builder - Robert enjoys helping build and is known for his intelligence and helpfulness.</p>
+        </div>
+
+        <div class="profile">
+            <h3>Logan Broeders</h3>
+            <p>Role: Builder - Logan loves to build and stay connected in robotics. He also enjoys playing sports in his free time.</p>
+        </div>
+        <div class="profile">
+            <h3>Karter Springstroh</h3>
+            <p>Role: Builder,driver</p>
+        </div>
+    </div>
+</section>
+
+            <!-- Countdown Section -->
+            <section class="countdown">
+                <p>Countdown to Our Next Event:</p>
+                <div id="countdown-timer">
+                    <p id="countdown"></p>
+                </div>
+            </section>
+
+            <!-- Glossary Section -->
+            <section id="glossary">
+                <h2>FRC Robotics Glossary</h2>
+                <div class="glossary-list">
+                    <div class="glossary-item">
+                        <h3>Accelerometer</h3>
+                        <p>A sensor that measures the acceleration force in multiple axes, often used to detect robot movement or tilt.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Actuator</h3>
+                        <p>A device that converts energy into motion, often used to move parts of the robot, such as arms, wheels, or doors.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Autonomous Mode</h3>
+                        <p>The period at the beginning of the match when the robot operates without human control, often using pre-programmed instructions.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Ballast</h3>
+                        <p>Additional weight or material added to a robot to improve stability, balance, or meet weight requirements.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Ball Shooter</h3>
+                        <p>A mechanism designed to shoot balls or other objects into a goal or target.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Bench Testing</h3>
+                        <p>Testing robot components outside the robot, often in a controlled environment, to check for performance and reliability.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Brake</h3>
+                        <p>A mechanical or electrical system used to stop or slow down the robot or specific parts of the robot.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>CAD (Computer-Aided Design)</h3>
+                        <p>A software tool used to create detailed 2D or 3D designs of robot parts and assemblies before building them physically.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Chassis</h3>
+                        <p>The main structural frame of the robot that holds all the components together, including the wheels, motors, and drivetrain.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Climber</h3>
+                        <p>A robot mechanism designed to scale a structure or goal during a match, often required to complete certain challenges.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Collider</h3>
+                        <p>Any physical contact between robots or parts of a robot during a match, often leading to damage or penalties.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Code</h3>
+                        <p>The programming instructions that control the behavior of a robot. Code determines how the robot responds to sensors and operator inputs.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Control System</h3>
+                        <p>The set of electronics and software that allows the robot to operate. It includes motors, sensors, and controllers that interact with the robot's code.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Defensive Robot</h3>
+                        <p>A robot built to block or impede opponents from scoring or performing tasks, often relying on physical barriers or obstacles.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Driver Station</h3>
+                        <p>A computer system used by drivers to control the robot during matches. It includes joysticks, buttons, and a display showing robot diagnostics.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Drivetrain</h3>
+                        <p>The system of motors, wheels, and gears that allows a robot to move across the field. This includes wheels, tracks, and other mobility systems.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Drop Zone</h3>
+                        <p>A specific area on the field where game pieces are placed by the human players during the match. Robots can retrieve these pieces to score points.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Encoder</h3>
+                        <p>A sensor that measures the rotation of a motor or wheel, allowing the robot to track its position and speed more accurately.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Endgame</h3>
+                        <p>The final phase of a match, often involving special actions or tasks, such as climbing or scoring bonus points. The endgame can be a critical part of determining the match winner.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Gripper</h3>
+                        <p>A mechanism used to pick up and hold onto game pieces, such as balls, cubes, or other objects on the field.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Gyroscope</h3>
+                        <p>A sensor used to measure the robot's orientation or angular velocity, helping the robot maintain balance and control during movement.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Infeed</h3>
+                        <p>The process of transferring game pieces into the robot's mechanism to be manipulated, moved, or scored.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Intake</h3>
+                        <p>A robot mechanism used to collect or "pick up" game pieces from the field, such as balls or other objects, often using rollers or belts.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Joystick</h3>
+                        <p>A control device used by the driver to control the robot’s movement and actions. Joysticks are often paired with buttons or switches.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Kickoff</h3>
+                        <p>The official start of the FRC season, where the game rules and challenges are revealed to all teams at the same time.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>LED</h3>
+                        <p>Light Emitting Diode, a type of indicator light used on the robot to display the robot's status, such as active, disabled, or specific modes.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Lift</h3>
+                        <p>A mechanism designed to raise or elevate other parts of the robot or game pieces, often to reach higher goals or platforms.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Limit Switch</h3>
+                        <p>A type of sensor that detects physical contact or position of a robot part. It is often used to stop movement at a specific point to prevent damage.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Match</h3>
+                        <p>A timed competition between two or more teams, where robots attempt to score points by completing tasks or challenges outlined in the game rules.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Motor Controller</h3>
+                        <p>A device that regulates the speed and direction of a motor by receiving signals from the robot's control system and translating them into motor commands.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Outreach</h3>
+                        <p>Activities and events that promote robotics, science, and technology in the community, often used to inspire students to pursue STEM careers.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Pit</h3>
+                        <p>The area where teams work on their robots before and after matches. The pit is where robots are inspected, repaired, and prepared for competition.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Power Distribution Panel (PDP)</h3>
+                        <p>The electrical component that distributes power from the battery to the motors and other parts of the robot.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Robot Controller</h3>
+                        <p>The computer that runs the robot’s software and processes sensor data to control the robot's movement and actions.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Robot Design</h3>
+                        <p>The process of planning, building, and refining the robot to perform well in the competition. It involves both mechanical and electrical design as well as programming.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Scoring</h3>
+                        <p>The process of achieving points in the game by completing tasks such as shooting balls, placing objects, or achieving specific robot actions.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Scout</h3>
+                        <p>A team member responsible for gathering information on other teams' robots, performance, and strategies during the competition.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Servo Motor</h3>
+                        <p>A small motor with built-in feedback control, often used for precise control of smaller mechanisms, such as arms or claws.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Shifter</h3>
+                        <p>A mechanism that changes the robot's gear ratio, typically between high and low gears, to adjust speed or torque as needed.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Subassembly</h3>
+                        <p>A smaller part or unit that forms a part of the larger robot. Examples include arms, wheels, or sensors, which can be tested separately before integration.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Telescoping Arm</h3>
+                        <p>A type of arm that extends and retracts, allowing the robot to reach taller structures or grasp higher game pieces.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Teleoperated Mode (Teleop)</h3>
+                        <p>The second part of the match where human drivers control the robot via joysticks, cameras, and sensors to complete tasks and score points.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Torque</h3>
+                        <p>The measure of rotational force applied by the motors, often related to how fast or powerful the robot moves, especially in climbing or heavy lifting tasks.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Wheel Encoder</h3>
+                        <p>A sensor that measures the rotation of a wheel, helping to calculate the robot's speed and position on the field.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Workstation</h3>
+                        <p>The area in the pit where team members prepare and monitor robot code, manage tools, or perform testing.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Wheelbase</h3>
+                        <p>The distance between the front and rear wheels of the robot, affecting how the robot turns and drives.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <h3>Zeroing</h3>
+                        <p>The process of setting a sensor or motor’s position to a specific reference point, often used in programming to ensure accuracy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trivia Button -->
+            <section>
+                <a href="https://triviafrctechnomos.w3spaces.com/" class="cta-btn">Test Your FRC Knowledge!</a>
+            </section>
+
+            <section>
+                <a href="https://www.eskymos.com/" class="cta-btn">Visit Our School</a>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Countdown Timer Script
+        const eventDate = new Date("March 7, 2025 00:00:00 GMT-0500").getTime(); // UTC-5 for your timezone
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "Event Started!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
